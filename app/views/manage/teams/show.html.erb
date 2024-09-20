@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<%= @team.id %>
+<%= @team.name %>
 
-<%= render @team %>
+<% @members.each do |member| %>
+  <p><%= member.name %></p>
+<% end %>
 
 <div>
-  <%= link_to "Edit this team", edit_team_path(@team) %> |
-  <%= link_to "Back to teams", teams_path %>
-
-  <%= button_to "Destroy this team", @team, method: :delete %>
+  <%= link_to "Edit this team", edit_manage_team_path(@team) %> |
+  <%= link_to "Back to teams", manage_teams_path %>
+  <%= button_to "Destroy this team", team_path(@team), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 </div>

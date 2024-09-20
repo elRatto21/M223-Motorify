@@ -29,6 +29,9 @@
         <div id="navbar">
           <%= link_to 'Motorify', root_path, id:'navbar-title' %>
           <div id="navbar-items">
+            <% if is_manager %>
+              <%= link_to 'Teams', manage_teams_path, method: :get %>
+            <% end %>
             <% if is_admin %>
               <%= link_to 'Admin Panel', admin_users_path, method: :get %>
             <% end %>

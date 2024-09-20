@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :teams
     resources :users, only: [:edit, :update, :index, :destroy]
   end
 
