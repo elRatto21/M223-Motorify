@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= @user.name %>
+<%= @user.email %>
+<%= @user.team_id %>
+
+<div>
+  <%= link_to "Change password", edit_user_path(@user) %>
+  <%= link_to "Edit", edit_user_path(@user) %>
+  <%= link_to "Back", root_path %>
+</div>

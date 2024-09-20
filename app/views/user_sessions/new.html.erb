@@ -1,0 +1,15 @@
+<div id="login-container">
+<h1>Motorify</h1>
+<div>Login</div>
+<%= form_with model: @user, id:'login-inputs', url: user_sessions_path do |f| %>
+    <div class="input-div">
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+    </div>
+    <div class="input-div">
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+    </div>
+    <%= f.submit 'Login', id:'login-button' %>
+<% end %>
+</div>

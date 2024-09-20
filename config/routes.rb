@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "user_sessions/new"
+  get "user_sessions/create"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -12,23 +14,34 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :team, only: [:show]
+  root 'pages#index'
 
-  resources :user, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :teams, only: [:show]
 
-  resources :bike
+  resources :users, only: [:show, :new, :create, :update, :edit]
 
-  resources :part
+  resources :bikes
 
-  resources :service
+  resources :parts
+
+  resources :services
+
+  resources :user_sessions, only: [:new, :create, :destroy]
 
   namespace :manage do
-    resources :team
+    resources :teams
   end
 
   namespace :admin do
-    resources :team
-    resources :user
+    resources :teams
+    resources :users
   end
+
+  # Bind better urls
+  get '/login', to: 'user_sessions#new'
+  get '/register', to: 'users#new'
+  get '/logout', to: 'user_sessions#destroy'
+  
+  get '/profile', to: 'users#show'
 
 end

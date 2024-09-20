@@ -1,15 +1,78 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#navbar-container {
+    border-bottom: 1px solid #eee;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#navbar-title {
+    font-weight: 600;
+}
+
+#navbar-items {
+    display: flex;
+    gap: 15px;
+}
+
+
+/* Login page */
+#login-container {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-inputs {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#login-container .input-div input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 7px 10px;
+    border-radius: 6px;
+}
+
+#login-button {
+    margin-top: 10px;
+    width: 150px;
+    cursor: pointer;
+    background-color: #1877f2;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 7px 0px;
+    border: none;
+    border-radius: 6px;
+}
+
+#login-button:hover {
+    background-color: #4267b2;
+}
+
+#login-button:active {
+    background-color: #264177;
+}
