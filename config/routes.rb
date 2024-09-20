@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :teams
-    resources :users
+    resources :users, only: [:edit, :update, :index, :destroy]
   end
 
   # Bind better urls
