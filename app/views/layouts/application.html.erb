@@ -27,8 +27,11 @@
     <% if current_user %>
       <div id="navbar-container">
         <div id="navbar">
-          <div id="navbar-title">Motorify</div>
+          <%= link_to 'Motorify', root_path, id:'navbar-title' %>
           <div id="navbar-items">
+            <% if is_admin %>
+              <%= link_to 'Admin Panel', admin_users_path, method: :get %>
+            <% end %>
             <%= link_to 'Profile', profile_path, method: :get %>
             <%= link_to 'Logout', logout_path, method: :get %>
           </div>
