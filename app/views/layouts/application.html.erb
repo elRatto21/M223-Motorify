@@ -18,6 +18,24 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <% if current_user %>
+      <div id="navbar-container">
+        <div id="navbar">
+          <div id="navbar-title">Motorify</div>
+          <div id="navbar-items">
+            <%= link_to 'Profile', profile_path, method: :get %>
+            <%= link_to 'Logout', logout_path, method: :get %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
