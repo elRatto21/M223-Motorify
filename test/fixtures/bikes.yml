@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  model: MyString
+  horsepower: 1
+  weight: 1
+  year: 1
+  mileage: 1
+  team: one
+
+two:
+  manufacturer: MyString
+  model: MyString
+  horsepower: 1
+  weight: 1
+  year: 1
+  mileage: 1
+  team: two

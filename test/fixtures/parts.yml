@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  price: 1.5
+  date: 2024-09-20
+  bike: one
+  team: one
+
+two:
+  title: MyString
+  description: MyText
+  price: 1.5
+  date: 2024-09-20
+  bike: two
+  team: two
