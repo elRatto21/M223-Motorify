@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   # allow_browser versions: :modern
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  before_action :set_paper_trail_whodunnit
 
   helper_method :current_user
   helper_method :is_admin
@@ -30,5 +35,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
+  end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to access this page."
+    redirect_to login_path
   end
 end

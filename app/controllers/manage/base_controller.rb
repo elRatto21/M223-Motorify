@@ -1,6 +1,9 @@
 class Manage::BaseController < ApplicationController
-    before_action :authenticate_manager!
+    before_action :authorize_manager
+    
+    private
 
-    def authenticate_manager!
+    def authorize_manager
+        authorize :teamleader, :access?
     end
 end
