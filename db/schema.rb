@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_26_070911) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_26_092642) do
   create_table "bikes", force: :cascade do |t|
     t.string "manufacturer"
     t.string "model"
@@ -44,6 +44,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_26_070911) do
     t.index ["team_id"], name: "index_parts_on_team_id"
   end
 
+  create_table "parts_services", id: false, force: :cascade do |t|
+    t.integer "service_id", null: false
+    t.integer "part_id", null: false
+    t.index ["part_id"], name: "index_parts_services_on_part_id"
+    t.index ["service_id"], name: "index_parts_services_on_service_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -66,11 +73,21 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_26_070911) do
     t.string "name"
     t.string "password_digest"
     t.string "password_confirmation"
-    t.string "role"
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role", default: 0
     t.index ["team_id"], name: "index_users_on_team_id"
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
   add_foreign_key "bikes", "teams"
