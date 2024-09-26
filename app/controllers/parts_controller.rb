@@ -1,4 +1,6 @@
 class PartsController < ApplicationController
+  before_action :set_part, only: [:show, :edit, :update]
+
   def index
     @parts = Part.where(team_id: current_user.team_id)
   end
@@ -17,7 +19,23 @@ class PartsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @part.update(part_params)
+      redirect_to parts_path, notice: "Part updated successfully."
+    else
+      render :edit
+    end
+  end
+
+
   private
+
+  def set_part
+    @part = Part.find(params[:id])
+  end
 
   def part_params
     params.require(:part).permit(:title, :description, :price, :date, :bike_id)

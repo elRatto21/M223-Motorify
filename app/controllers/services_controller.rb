@@ -38,7 +38,12 @@ class ServicesController < ApplicationController
     @service.destroy
     redirect_to services_path, notice: "Service deleted successfully."
   end
+
   private
+
+  def set_service
+    @service = Service.find(params[:id])
+  end
 
   def service_params
     params.require(:service).permit(:title, :description, :date, :bike_id, part_ids: [])

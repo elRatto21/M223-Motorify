@@ -11,6 +11,7 @@
       <th>price</th>
       <th>date</th>
       <th>bike</th>
+      <th>edit</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td><%= part.price %></td>
         <td><%= part.date %></td>
         <td><%= part.bike_id %></td>
+        <th><%= link_to 'Edit', edit_part_path(part) %></th>
       </tr>
     <% end %>
   </tbody>
