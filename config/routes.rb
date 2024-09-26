@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:edit, :update, :index, :destroy]
+    resources :teams
+    get '/activities', to: 'activities#index'
   end
 
   # Bind better urls
