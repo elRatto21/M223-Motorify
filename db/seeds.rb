@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Check if the admin user already exists to avoid duplicate creation
+admin = User.find_or_create_by!(email: "admin@admin.com") do |user|
+  user.password = "admin"
+  user.password_confirmation = "admin"
+  user.role = "admin"
+  user.name = "Admin User"
+end
+
+puts "Admin user has been created."
+
+admin = User.find_or_create_by!(email: "teamleader@teamleader.com") do |user|
+  user.password = "teamleader"
+  user.password_confirmation = "teamleader"
+  user.role = "teamleader"
+  user.name = "Teamleader"
+end
+
+puts "Manager user has been created."
