@@ -29,6 +29,9 @@
         <div id="navbar">
           <%= link_to 'Motorify', root_path, id:'navbar-title' %>
           <div id="navbar-items">
+            <%= link_to 'Bikes', bikes_path, method: :get %>
+            <%= link_to 'Services', services_path, method: :get %>
+            <%= link_to 'Parts', parts_path, method: :get %>
             <% if is_manager %>
               <%= link_to 'Teams', manage_teams_path, method: :get %>
             <% end %>
