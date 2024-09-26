@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_manager
-    User.find_by(id: session[:user_id]).role == 'admin' || 'teamleader'
+    User.find_by(id: session[:user_id]).role == 'teamleader'
   end
 
   before_action :require_login

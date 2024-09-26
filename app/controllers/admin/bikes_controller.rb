@@ -1,15 +1,15 @@
-class BikesController < ApplicationController
+class Admin::BikesController < ApplicationController
   def index
-    @bikes = Bike.where(team_id: current_user.team_id)
+    @bikes = Bike.all
   end
 
   def new
     @bike = Bike.new
+    authorized @bike
   end
 
   def create
     @bike = Bike.new(bike_params)
-    @bike.team_id = current_user.team_id
     if @bike.save
       redirect_to bikes_path, notice: "Bike created successfully."
     else
@@ -20,6 +20,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:manufacturer, :model, :horsepower, :weight, :year, :mileage)
+    params.require(:bike).permit(:manufacturer, :model, :horsepower, :weight, :year, :mileage, :team_id)
   end
 end
