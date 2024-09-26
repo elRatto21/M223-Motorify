@@ -1,16 +1,28 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Parts" %>
-
 <h1>Parts</h1>
 
-<div id="parts">
-  <% @parts.each do |part| %>
-    <%= render part %>
-    <p>
-      <%= link_to "Show this part", part %>
-    </p>
-  <% end %>
-</div>
+<%= link_to "New part", new_part_path, class: "create-btn" %>
 
-<%= link_to "New part", new_part_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>description</th>
+      <th>price</th>
+      <th>date</th>
+      <th>bike</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @parts.each do |part| %>
+      <tr>
+        <td><%= part.id %></td>
+        <td><%= part.title %></td>
+        <td><%= part.description %></td>
+        <td><%= part.price %></td>
+        <td><%= part.date %></td>
+        <td><%= part.bike_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -19,7 +19,7 @@
 
   <body>
     <% flash.each do |type, msg| %>
-      <div>
+      <div class="flash">
         <%= msg %>
       </div>
     <% end %>
@@ -36,6 +36,10 @@
               <%= link_to 'Teams', manage_teams_path, method: :get %>
             <% end %>
             <% if is_admin %>
+              <%= link_to 'Teams', admin_teams_path, method: :get %>
+              <% end %>
+            <% if is_admin %>
+              <%= link_to 'Activity Feed', admin_activities_path, method: :get %>
               <%= link_to 'Admin Panel', admin_users_path, method: :get %>
             <% end %>
             <%= link_to 'Profile', profile_path, method: :get %>
@@ -44,7 +48,8 @@
         </div>
       </div>
     <% end %>
-    
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

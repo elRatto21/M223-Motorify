@@ -1,11 +1,14 @@
 <h1>Teams</h1>
 
-<div id="teams">
-  <table id="teams-table">
+<%= link_to "New team", new_manage_team_path, class: 'create-btn' %>
+
+  <table>
     <thead>
-      <tr>ID</tr>
-      <tr>Name</tr>
-      <tr>Action</tr>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Action</th>
+      </tr>
     </thead>
     <tbody>
       <% @teams.each do |team| %>
@@ -20,6 +23,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
-
-<%= link_to "New team", new_manage_team_path %>
+  

@@ -1,16 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<h1>Bikes</h1>
 
-<% content_for :title, "Bikes" %>
+<%= link_to "New bike", new_bike_path, class: 'create-btn' %>
 
-<h1>Bikes of team <%= @team_name %></h1>
-
-<div id="bikes">
-  <% @bikes.each do |bike| %>
-    <%= render bike %>
-    <p>
-      <%= link_to "Show this bike", bike %>
-    </p>
-  <% end %>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>manufacturer</th>
+      <th>model</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>year</th>
+      <th>mileage</th>
+      <th>edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bikes.each do |bike| %>
+      <tr>
+        <td><%= bike.id %></td>
+        <td><%= bike.manufacturer %></td>
+        <td><%= bike.model %></td>
+        <td><%= bike.horsepower %></td>
+        <td><%= bike.weight %></td>
+        <td><%= bike.year %></td>
+        <td><%= bike.mileage %></td>
+        <td><%= link_to "Edit", edit_bike_path(bike) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </div>
 
-<%= link_to "New bike", new_bike_path %>
+

@@ -26,10 +26,14 @@
     <%= form.date_field :date %>
   </div>
 
-  <div>
-    <%= form.label :bike_id, style: "display: block" %>
-    <%= form.number_field :bike_id %>
+  <div class="field">
+    <%= form.label :bike_id, "Bike" %>
+    <%= form.collection_select :bike_id, Bike.all, :id, ->(bike) { "#{bike.manufacturer} - #{bike.model}" }, prompt: "Select a bike" %>
   </div>
+
+  <%= form.label :parts %><br>
+  <%= collection_check_boxes(:service, :part_ids, Part.all, :id, :title) %>
+
 
   <div>
     <%= form.submit %>

@@ -11,37 +11,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :manufacturer, style: "display: block" %>
-    <%= form.text_field :manufacturer %>
-  </div>
+    <div>
+      <%= form.label :manufacturer, style: "display: block" %>
+      <%= form.text_field :manufacturer %>
+    </div>
 
-  <div>
-    <%= form.label :model, style: "display: block" %>
-    <%= form.text_field :model %>
-  </div>
+    <div>
+      <%= form.label :model, style: "display: block" %>
+      <%= form.text_field :model %>
+    </div>
 
-  <div>
-    <%= form.label :horsepower, style: "display: block" %>
-    <%= form.number_field :horsepower %>
-  </div>
+    <div>
+      <%= form.label :horsepower, style: "display: block" %>
+      <%= form.number_field :horsepower %>
+    </div>
 
-  <div>
-    <%= form.label :weight, style: "display: block" %>
-    <%= form.number_field :weight %>
-  </div>
+    <div>
+      <%= form.label :weight, style: "display: block" %>
+      <%= form.number_field :weight %>
+    </div>
 
-  <div>
-    <%= form.label :year, style: "display: block" %>
-    <%= form.number_field :year %>
-  </div>
+    <div>
+      <%= form.label :year, style: "display: block" %>
+      <%= form.number_field :year %>
+    </div>
 
-  <div>
-    <%= form.label :mileage, style: "display: block" %>
-    <%= form.number_field :mileage %>
-  </div>
+    <div>
+      <%= form.label :mileage, style: "display: block" %>
+      <%= form.number_field :mileage %>
+    </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-btns">
+    <%= form.submit class: "form-btn btn-confirm" %>
+    <%= link_to "Cancel", bikes_path, class: "form-btn btn-cancel" %>
   </div>
 <% end %>
