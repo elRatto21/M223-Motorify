@@ -1,24 +1,50 @@
-# README
+# Motorify
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+Ensure you have the following installed:
 
-* Ruby version
+- Ruby
+- Rails
+- SQLite
 
-* System dependencies
 
-* Configuration
+## Getting Started
 
-* Database creation
+### 1. Clone the repository:
 
-* Database initialization
+```bash
+git clone https://github.com/elRatto21/M223-Motorify.git
+cd project
+```
 
-* How to run the test suite
+### 2. Install dependencies:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bundle install
+```
 
-* Deployment instructions
+### 3. Set up the database:
 
-* ...
+```bash
+rails db:create
+rails db:migrate
+```
+
+### 4. Seed the database (initial admin user)
+
+```bash
+rails db:seed
+```
+
+### 5. Running tests (optional)
+
+```bash
+rails test
+```
+
+### 6. Start the application
+
+```bash
+rails server
+```
