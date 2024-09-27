@@ -155,8 +155,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
-    paper_trail (14.0.0)
-      activerecord (>= 6.0)
+    paper_trail (15.2.0)
+      activerecord (>= 6.1)
       request_store (~> 1.4)
     parallel (1.26.3)
     parser (3.3.5.0)
@@ -327,7 +327,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  paper_trail (~> 14.0)
+  paper_trail (~> 15.2)
   puma (>= 5.0)
   pundit (~> 2.4)
   rails (~> 7.2.1)
