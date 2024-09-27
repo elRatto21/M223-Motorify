@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show, :edit, :update]
+  before_action :set_bike, only: [:show, :edit, :update, :destroy]
 
   def index
     @bikes = Bike.where(team_id: current_user.team_id)
@@ -30,6 +30,11 @@ class BikesController < ApplicationController
       flash.now[:alert] = "There was a problem updating the bike"
       render :edit
     end
+  end
+
+  def destroy
+    @bike.destroy
+    redirect_to bikes_path, notice: "Bike deleted successfully."
   end
 
   private

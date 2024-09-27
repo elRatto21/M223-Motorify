@@ -1,5 +1,5 @@
 class PartsController < ApplicationController
-  before_action :set_part, only: [:show, :edit, :update]
+  before_action :set_part, only: [:show, :edit, :update, :destroy]
 
   def index
     @parts = Part.where(team_id: current_user.team_id)
@@ -30,6 +30,10 @@ class PartsController < ApplicationController
     end
   end
 
+  def destroy
+    @part.destroy
+    redirect_to parts_path, notice: "Part deleted successfully."
+  end
 
   private
 

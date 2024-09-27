@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   # allow_browser versions: :modern
-  include Pundit
+  include Pundit::Authorization
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :is_admin
   helper_method :is_manager
+  helper_method :has_team
 
   def current_user
     @current_user ||= session[:user_id] && User.find_by(id: session[:user_id])
@@ -21,6 +22,10 @@ class ApplicationController < ActionController::Base
 
   def is_manager
     User.find_by(id: session[:user_id]).role == 'teamleader'
+  end
+
+  def has_team
+    current_user.team_id != nil
   end
 
   before_action :require_login

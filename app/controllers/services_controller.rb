@@ -25,6 +25,10 @@ class ServicesController < ApplicationController
       render :new
     end
   end
+  
+  def edit
+    @parts = Part.where(team_id: current_user.team_id)
+  end
 
   def update
     if @service.update(service_params)
@@ -46,6 +50,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:title, :description, :date, :bike_id, part_ids: [])
+    params.require(:service).permit(:title, :description, :date, :mileage, :bike_id, part_ids: [])
   end
 end
