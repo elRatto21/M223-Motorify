@@ -29,12 +29,15 @@ Rails.application.routes.draw do
   resources :user_sessions, only: [:new, :create, :destroy]
 
   namespace :manage do
-    resources :teams
+    resources :teams do
+      patch :add_users_to_team, on: :member
+    end
   end
 
   namespace :admin do
-    resources :users, only: [:edit, :update, :index, :destroy]
+    resources :users, only: [:edit, :update, :index, :destroy, :new, :create]
     resources :teams
+    resources :bikes
     get '/activities', to: 'activities#index'
   end
 
