@@ -1,13 +1,16 @@
 <h1>All Users</h1>
 
-<%= link_to 'New user', new_user_path %>
+<%= link_to 'New user', new_admin_user_path, class: 'create-btn' %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>id</th>
       <th>email</th>
       <th>name</th>
+      <th>team id</th>
+      <th>role</th>
+      <th>edit</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +19,9 @@
         <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
+        <td><%= user.team_id %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to 'Edit User', edit_admin_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>

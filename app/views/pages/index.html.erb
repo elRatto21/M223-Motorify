@@ -1,6 +1,15 @@
-<% if current_user %>
-    <h1>Welcome, <%= current_user.name %></h1>
-<% else %>
-    <h1>This is the index page</h1>
-    <%= link_to 'Login', new_user_session_path %><br>
+<h1>Welcome to Motorify <%= current_user.name %></h1>
+<h2>Your team: <%= @team_name %></h2>
+
+<% if has_team %>
+    <h2>Shortcuts</h2>
+    <div class="shortcut-container">
+        <%= link_to "Create bike", new_bike_path, class: "shortcut" %>
+        <%= link_to "Create service", new_service_path, class: "shortcut" %>
+        <%= link_to "Create part", new_part_path, class: "shortcut" %>
+    </div>
+    <% else %>
+    <div>
+        Please contact an admin or manager to get assigned to a team to use this application
+    </div>
 <% end %>

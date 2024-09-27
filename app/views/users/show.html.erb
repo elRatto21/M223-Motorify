@@ -1,9 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<h1>Profile</h1>
 
+<div>Name:
 <%= @user.name %>
+</div>
+<div>Email: 
 <%= @user.email %>
+</div>
+<div>Team:
 <%= @user.team_id %>
-
+</div>
+<div>Role:
+<%= @user.role %>
+</div>
 <div>
   <%= link_to "Change password", edit_user_path(@user) %>
   <%= link_to "Edit", edit_user_path(@user) %>

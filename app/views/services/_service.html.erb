@@ -10,6 +10,11 @@
   </p>
 
   <p>
+    <strong>Mileage:</strong>
+    <%= service.mileage %>
+  </p>
+
+  <p>
     <strong>Date:</strong>
     <%= service.date %>
   </p>
@@ -19,4 +24,10 @@
     <%= service.bike_id %>
   </p>
 
+  <p>
+    <strong>Parts:</strong>
+    <% service.parts.each do |part| %>
+      <%= part.title %>
+      <% end %>
+</p>
 </div>

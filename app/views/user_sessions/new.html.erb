@@ -11,5 +11,10 @@
         <%= f.password_field :password %>
     </div>
     <%= f.submit 'Login', id:'login-button' %>
+    <div class="or-text">OR</div>
+    <div>
+        <%= link_to 'Register an account', register_path, id: 'register-link' %>
+    </div>
 <% end %>
+
 </div>

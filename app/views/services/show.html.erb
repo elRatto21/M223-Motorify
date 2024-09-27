@@ -3,8 +3,8 @@
 <%= render @service %>
 
 <div>
-  <%= link_to "Edit this service", edit_service_path(@service) %> |
+  <%= link_to "Edit", edit_service_path(@service) %> |
   <%= link_to "Back to services", services_path %>
 
-  <%= button_to "Destroy this service", @service, method: :delete %>
+  <%= button_to "Delete", @service, method: :delete %>
 </div>

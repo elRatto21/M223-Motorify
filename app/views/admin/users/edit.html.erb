@@ -1,12 +1,28 @@
-<% content_for :title, "Editing user" %>
+<h1>Edit User: <%= @user.name %></h1>
 
-<h1>Editing user</h1>
+<%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
+  <div>
+    <%= f.label :email, style: "display: block" %>
+    <%= f.text_field :email %>
+  </div>
 
-<%= render "form", user: @user %>
+  <div>
+    <%= f.label :name, style: "display: block" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <%= f.label :team_id, "Team" %><br>
+    <%= f.collection_select :team_id, @teams, :id, :name, include_blank: true %>
+  </div>
 
-<br>
+  <div>
+    <%= f.label :role %><br>
+    <%= f.select :role, ['admin', 'teamleader', 'member'], include_blank: true %>
+  </div>
+  
 
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
-</div>
+  <%= link_to 'Cancel', admin_users_path %>
+  <%= f.submit "Update", class: 'btn btn-primary' %>
+<% end %>
+ <%= button_to "Delete", @user, method: :delete %>

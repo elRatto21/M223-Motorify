@@ -27,7 +27,10 @@
         <%= f.password_field :password_confirmation %>
     </div>
     <p>
-        <%= f.submit %>
+        <%= f.submit class: 'create-btn' %>
     </p>
+    <div>
+        <%= link_to 'Back to login', login_path %>
+    </div>
 <% end %>
     

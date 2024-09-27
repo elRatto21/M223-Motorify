@@ -1,16 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Services" %>
-
 <h1>Services</h1>
 
-<div id="services">
-  <% @services.each do |service| %>
-    <%= render service %>
-    <p>
-      <%= link_to "Show this service", service %>
-    </p>
-  <% end %>
-</div>
+<%= link_to "New service", new_service_path, class: "create-btn" %>
 
-<%= link_to "New service", new_service_path %>
+<table>
+  <thead>
+    <tr>
+      <th>bike id</th>
+      <th>title</th>
+      <th>mileage</th>
+      <th>date</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.bike_id %></td>
+        <td><%= service.title %></td>
+        <td><%= service.mileage %></td>
+        <td><%= service.date %></td>
+        <td><%= link_to "Details", service_path(service) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

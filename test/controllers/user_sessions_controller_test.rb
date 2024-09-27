@@ -1,13 +1,12 @@
-require "test_helper"
+require 'test_helper'
 
 class UserSessionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get user_sessions_new_url
-    assert_response :success
+  setup do
+    @user = User.create!(name: "Test User", email: "test@example.com", password: "passwordpassword")
   end
 
-  test "should get create" do
-    get user_sessions_create_url
-    assert_response :success
+  test "should create session" do
+    post user_sessions_path, params: { user: { email: @user.email, password: @user.password } }
+    assert_redirected_to root_path
   end
 end

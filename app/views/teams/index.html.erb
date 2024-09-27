@@ -1,16 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Teams" %>
-
 <h1>Teams</h1>
 
-<div id="teams">
+<%= link_to "New team", new_team_path, class: 'create-btn' %>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>details</th>
+</tr>
+</thead>
+<tbody
   <% @teams.each do |team| %>
-    <%= render team %>
-    <p>
-      <%= link_to "Show this team", team %>
-    </p>
+    <tr> 
+    <td><%= team.name %></td>
+    <td><%= link_to "Show team", team %></td>
+    </tr>
   <% end %>
+</tbody>
 </div>
 
-<%= link_to "New team", new_team_path %>
+
