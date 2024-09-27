@@ -19,7 +19,7 @@
 
   <body>
     <% flash.each do |type, msg| %>
-      <div class="flash">
+      <div class="flash <%= flash_class(type) %>">
         <%= msg %>
       </div>
     <% end %>
@@ -29,9 +29,11 @@
         <div id="navbar">
           <%= link_to 'Motorify', root_path, id:'navbar-title' %>
           <div id="navbar-items">
+            <% if has_team %>
             <%= link_to 'Bikes', bikes_path, method: :get %>
             <%= link_to 'Services', services_path, method: :get %>
             <%= link_to 'Parts', parts_path, method: :get %>
+            <% end %>
             <% if is_manager %>
               <%= link_to 'Teams', manage_teams_path, method: :get %>
             <% end %>

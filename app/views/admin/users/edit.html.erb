@@ -21,7 +21,8 @@
     <%= f.select :role, ['admin', 'teamleader', 'member'], include_blank: true %>
   </div>
   
-  <%= link_to 'Delete', admin_user_path(@user), method: :delete %>
+
   <%= link_to 'Cancel', admin_users_path %>
   <%= f.submit "Update", class: 'btn btn-primary' %>
 <% end %>
+ <%= button_to "Delete", @user, method: :delete %>

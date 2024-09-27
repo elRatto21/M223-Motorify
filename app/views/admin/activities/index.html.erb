@@ -1,34 +1,24 @@
 <h1>Activity Feed</h1>
 
-<table class="tabl">
-  <thead>
-    <tr>
-      <th>Item Type</th>
-      <th>Action</th>
-      <th>Changed By</th>
-      <th>Changes</th>
-      <th>Timestamp</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @versions.each do |version| %>
+<div class="table-container">
+  <table id="activity-table">
+    <thead>
       <tr>
-        <td><%= version.item_type %></td>
-        <td><%= version.event %></td>
-        <td><%= User.find_by(id: version.whodunnit)&.name || "Unknown" %></td>
-        <td>
-          <% if version.changeset %>
-            <ul>
-              <% version.changeset.each do |field, values| %>
-                <li><strong><%= field %>:</strong> from <%= values[0] %> to <%= values[1] %></li>
-              <% end %>
-            </ul>
-          <% else %>
-            N/A
-          <% end %>
-        </td>
-        <td><%= version.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <th>Timestamp</th>
+        <th>Item Type</th>
+        <th>Action</th>
+        <th>Changed By</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @versions.each do |version| %>
+        <tr>
+          <td><%= version.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= version.item_type %></td>
+          <td><%= version.event %></td>
+          <td><%= User.find_by(id: version.whodunnit)&.name || "Unknown" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

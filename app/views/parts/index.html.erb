@@ -2,7 +2,7 @@
 
 <%= link_to "New part", new_part_path, class: "create-btn" %>
 
-<table class="table">
+<table>
   <thead>
     <tr>
       <th>id</th>
@@ -23,7 +23,7 @@
         <td><%= part.price %></td>
         <td><%= part.date %></td>
         <td><%= part.bike_id %></td>
-        <th><%= link_to 'Edit', edit_part_path(part) %></th>
+        <td><%= link_to 'Edit', edit_part_path(part) %></td>
       </tr>
     <% end %>
   </tbody>

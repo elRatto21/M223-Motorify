@@ -1,26 +1,29 @@
-<h1>Teams</h1>
+<h1>Team</h1>
 
-<%= link_to "New team", new_manage_team_path, class: 'create-btn' %>
+<% if current_user.teamleader? && current_user.team_id.nil? %>
+  <%= link_to "New team", new_manage_team_path, class: 'create-btn' %>
+<% end %>
 
-  <table>
-    <thead>
+<table>
+  <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @teams.each do |team| %>
-        <tr>
-          <td><%= team.id %></td>
-          <td><%= team.name %></td>
-          <td>
-            <%= link_to "Details", manage_team_path(team) %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.id %></td>
+        <td><%= team.name %></td>
+        <td>
+          <%= link_to "Details", manage_team_path(team) %>
+          <% if current_user.admin? || (current_user.teamleader? && team.id == current_user.team_id) %>
             <%= link_to "Edit", edit_manage_team_path(team) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

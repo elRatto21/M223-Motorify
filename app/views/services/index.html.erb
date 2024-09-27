@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>id</th>
+      <th>bike id</th>
       <th>title</th>
+      <th>mileage</th>
       <th>date</th>
       <th>details</th>
     </tr>
@@ -14,8 +15,9 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= service.id %></td>
+        <td><%= service.bike_id %></td>
         <td><%= service.title %></td>
+        <td><%= service.mileage %></td>
         <td><%= service.date %></td>
         <td><%= link_to "Details", service_path(service) %></td>
       </tr>

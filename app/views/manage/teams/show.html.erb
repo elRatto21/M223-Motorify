@@ -1,12 +1,26 @@
-<%= @team.id %>
-<%= @team.name %>
+<h1>Team: <%= @team.name %></h1>
 
-<% @members.each do |member| %>
-  <p><%= member.name %></p>
+<h2>Members</h2>
+  <% @members.each do |member| %>
+    <div><%= member.name %></div>
+  <% end %>
+
+  <br>
+  <br>
+
+<% if current_user.teamleader? && @team.id == current_user.team_id %>
+  <h3>Assign users to your team</h3>
+
+  <%= form_with url: add_users_to_team_manage_team_path(@team), method: :patch do %>
+    <div>
+      <!-- Corrected the collection_select helper -->
+      <%= collection_select "user", "user_ids", @users_without_team, :id, :name, {}, { multiple: true } %>
+    </div>
+    <%= submit_tag "Add Selected Users" %>
+  <% end %>
 <% end %>
 
-<div>
-  <%= link_to "Edit this team", edit_manage_team_path(@team) %> |
-  <%= link_to "Back to teams", manage_teams_path %>
-  <%= button_to "Destroy this team", team_path(@team), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-</div>
+<br>
+<br>
+
+<%= link_to "Back to teams", manage_teams_path %>
