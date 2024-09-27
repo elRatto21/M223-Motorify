@@ -58,7 +58,7 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'paper_trail', '~> 14.0'
+gem 'paper_trail', '~> 15.2'
 gem "pundit", "~> 2.4"
 
 gem 'simplecov', require: false, group: :test
