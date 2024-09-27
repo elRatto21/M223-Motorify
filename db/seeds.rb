@@ -9,18 +9,18 @@
 #   end
 
 # Check if the admin user already exists to avoid duplicate creation
-admin = User.find_or_create_by!(email: "admin@admin.com") do |user|
-  user.password = "admin"
-  user.password_confirmation = "admin"
+admin = User.find_or_create_by!(email: "admin@test.com") do |user|
+  user.password = "testtesttest"
+  user.password_confirmation = "testtesttest"
   user.role = "admin"
   user.name = "Admin User"
 end
 
 puts "Admin user has been created."
 
-admin = User.find_or_create_by!(email: "teamleader@teamleader.com") do |user|
-  user.password = "teamleader"
-  user.password_confirmation = "teamleader"
+admin = User.find_or_create_by!(email: "teamleader@test.com") do |user|
+  user.password = "testtesttest"
+  user.password_confirmation = "testtesttest"
   user.role = "teamleader"
   user.name = "Teamleader"
 end
