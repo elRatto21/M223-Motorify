@@ -4,4 +4,6 @@ class Part < ApplicationRecord
 
   belongs_to :team
   belongs_to :bike, optional: true
+
+  validates :title, :team_id, presence: true
 end

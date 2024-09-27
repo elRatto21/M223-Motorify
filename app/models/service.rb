@@ -4,4 +4,6 @@ class Service < ApplicationRecord
 
   belongs_to :bike
   belongs_to :team
+
+  validates :title, :bike_id, :team_id, presence: true
 end
