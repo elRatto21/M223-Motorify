@@ -1,10 +1,10 @@
 class UserPolicy < ApplicationPolicy
   def index?
-    user.admin? || user.manager?  # Only admin and manager can view users
+    user.admin? || user.teamleader?  # Only admin and manager can view users
   end
 
   def show?
-    user.admin? || user.manager? || record == user  # Admin, manager, or the user himself
+    user.admin? || user.teamleader? || record == user  # Admin, manager, or the user himself
   end
 
   def new?
